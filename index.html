@@ -6,21 +6,24 @@
     <title>Weather Forescast</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Font Awesome CDN -->
     <script src='main.js'></script>
 </head>
 <body>
-    <div class="location">
-        <h1 id="location-timezone-heading">Location</h1>
-        <p id="location-timezone">Loading timezone...</p>
-        <p id="weather-icon">Loading icon...</p>
-    </div>
-    <div class="temperature">
-        <div class="degree-section">
-        <h2 class="temperature-degree">Loading...</h2>
-        <span></span>
+    <div class="container"> <!-- Added container div -->
+        <div class="location">
+            <h1 id="location-timezone-heading">Location</h1>
+            <p id="location-timezone">Loading timezone...</p>
+            <i id="weather-icon" class="fas fa-spinner fa-spin" style="font-size: 3em; margin-top: 10px;"></i> <!-- Updated weather icon -->
         </div>
-        <div class="description">Loading weather description...</div>
-    </div>
+        <div class="temperature">
+            <div class="degree-section">
+            <h2 class="temperature-degree">Loading...</h2>
+            <span id="temperature-unit"></span> <!-- Added ID -->
+            </div>
+            <div class="description">Loading weather data...</div> <!-- Updated text -->
+        </div>
+    </div> <!-- Closing container div -->
 <script src="app.js"></script>    
 </body>
 </html>
