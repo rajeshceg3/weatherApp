@@ -9,38 +9,48 @@ window.addEventListener('load', () =>{
 
     function getFontAwesomeIcon(apiIcon) {
         const iconMap = {
-            'clear-day': 'fa-sun',
-            'clear-night': 'fa-moon',
-            'rain': 'fa-cloud-showers-heavy',
-            'snow': 'fa-snowflake',
-            'sleet': 'fa-cloud-meatball',
-            'wind': 'fa-wind',
-            'fog': 'fa-smog',
-            'cloudy': 'fa-cloud',
-            'partly-cloudy-day': 'fa-cloud-sun',
-            'partly-cloudy-night': 'fa-cloud-moon',
-            'hail': 'fa-cloud-hail', // Assuming Font Awesome has this or a similar one
-            'thunderstorm': 'fa-bolt',
-            'tornado': 'fa-tornado', // Assuming Font Awesome has this or a similar one
+            '01d': 'fa-sun', // clear sky day
+            '01n': 'fa-moon', // clear sky night
+            '02d': 'fa-cloud-sun', // few clouds day
+            '02n': 'fa-cloud-moon', // few clouds night
+            '03d': 'fa-cloud', // scattered clouds day
+            '03n': 'fa-cloud', // scattered clouds night
+            '04d': 'fa-cloud-meatball', // broken clouds day (using 'cloud-meatball' as a distinct cloudy icon)
+            '04n': 'fa-cloud-meatball', // broken clouds night
+            '09d': 'fa-cloud-showers-heavy', // shower rain day
+            '09n': 'fa-cloud-showers-heavy', // shower rain night
+            '10d': 'fa-cloud-sun-rain', // rain day
+            '10n': 'fa-cloud-moon-rain', // rain night
+            '11d': 'fa-bolt', // thunderstorm day
+            '11n': 'fa-bolt', // thunderstorm night
+            '13d': 'fa-snowflake', // snow day
+            '13n': 'fa-snowflake', // snow night
+            '50d': 'fa-smog', // mist day
+            '50n': 'fa-smog'  // mist night
         };
         return iconMap[apiIcon] || 'fa-question-circle'; // Default icon
     }
 
     function getWeatherBackground(apiIcon) {
         const backgrounds = {
-            'clear-day': 'linear-gradient(to top, #2980B9, #6DD5FA, #FFFFFF)', // Sunny sky
-            'clear-night': 'linear-gradient(to top, #0F2027, #203A43, #2C5364)', // Clear night sky
-            'rain': 'linear-gradient(to top, #6c7a89, #434343)', // Rainy, dark clouds
-            'snow': 'linear-gradient(to top, #ECE9E6, #FFFFFF)', // Snowy white
-            'sleet': 'linear-gradient(to top, #757F9A, #D7DDE8)', // Sleet, cold grey
-            'wind': 'linear-gradient(to top, #BDBBBE, #8A888B)', // Windy grey
-            'fog': 'linear-gradient(to top, #757F9A, #D7DDE8)', // Foggy grey
-            'cloudy': 'linear-gradient(to top, #606c88, #3f4c6b)', // Cloudy sky
-            'partly-cloudy-day': 'linear-gradient(to top, #76b852, #8DC26F, #dce35b)', // Partly cloudy, some sun
-            'partly-cloudy-night': 'linear-gradient(to top, #141E30, #243B55)', // Partly cloudy night
-            'hail': 'linear-gradient(to top, #3E5151, #DECBA4)',
-            'thunderstorm': 'linear-gradient(to top, #1F1C2C, #928DAB)',
-            'tornado': 'linear-gradient(to top, #2c3e50, #000000)',
+            '01d': 'linear-gradient(to top, #2980B9, #6DD5FA, #FFFFFF)', // clear sky day (Sunny sky)
+            '01n': 'linear-gradient(to top, #0F2027, #203A43, #2C5364)', // clear sky night (Clear night sky)
+            '02d': 'linear-gradient(to top, #76b852, #8DC26F, #dce35b)', // few clouds day (Partly cloudy, some sun)
+            '02n': 'linear-gradient(to top, #141E30, #243B55)', // few clouds night (Partly cloudy night)
+            '03d': 'linear-gradient(to top, #606c88, #3f4c6b)', // scattered clouds day (Cloudy sky)
+            '03n': 'linear-gradient(to top, #141E30, #243B55)', // scattered clouds night (using partly cloudy night for variation)
+            '04d': 'linear-gradient(to top, #485563, #29323c)', // broken clouds day (more intense cloudy)
+            '04n': 'linear-gradient(to top, #232526, #414345)', // broken clouds night (darker intense cloudy)
+            '09d': 'linear-gradient(to top, #6c7a89, #434343)', // shower rain day (Rainy, dark clouds)
+            '09n': 'linear-gradient(to top, #3c3c3c, #1a1a1a)', // shower rain night (Darker rainy)
+            '10d': 'linear-gradient(to top, #bdc3c7, #2c3e50)', // rain day (Softer rain)
+            '10n': 'linear-gradient(to top, #2c3e50, #000000)', // rain night (Darker softer rain)
+            '11d': 'linear-gradient(to top, #1F1C2C, #928DAB)', // thunderstorm day/night
+            '11n': 'linear-gradient(to top, #1F1C2C, #928DAB)',
+            '13d': 'linear-gradient(to top, #ECE9E6, #FFFFFF)', // snow day/night (Snowy white)
+            '13n': 'linear-gradient(to top, #ECE9E6, #FFFFFF)',
+            '50d': 'linear-gradient(to top, #757F9A, #D7DDE8)', // mist day/night (Foggy grey)
+            '50n': 'linear-gradient(to top, #757F9A, #D7DDE8)'
         };
         return backgrounds[apiIcon];
     }
