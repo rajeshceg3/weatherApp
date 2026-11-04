@@ -51,7 +51,7 @@ body{
     font-size: 1em; /* Adjusted font size */
 }
 
-.degree-section h2{
+.degree-section .temperature-degree{
     font-size: 3em; /* Adjusted font size */
 }
 
@@ -97,7 +97,7 @@ body{
         font-size: 1.3em;
     }
 
-    .degree-section h2 { /* Targeting h2 inside .degree-section */
+    .degree-section .temperature-degree { /* Targeting h2 inside .degree-section */
         font-size: 2.5em;
     }
 
@@ -121,7 +121,7 @@ body{
         font-size: 1.1em;
     }
 
-    .degree-section h2 { /* Targeting h2 inside .degree-section */
+    .degree-section .temperature-degree { /* Targeting h2 inside .degree-section */
         font-size: 2em;
     }
 
@@ -139,3 +139,11 @@ body{
         /* align-items: center; /* Already set */
     }
 }
+.degree-section { font: inherit; color: inherit; border: 0; background: transparent; width: 100%; }
+.degree-section:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.degree-section:disabled { cursor: default; }
+.description { overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { .degree-section { transition: none; } }
+
+/* Keep weather text readable even on clear-sky and snow gradients. */
+.container { background-color: rgba(8, 24, 45, .82); }
