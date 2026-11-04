@@ -73,7 +73,7 @@ window.addEventListener('load', () =>{
             fetch(apiUrl)
             .then(response => response.json())
             .then((data) => {
-                console.log( data );
+
                 // Handle API errors from weather_api.php
                 if (data.error) {
                     descriptionText.textContent = data.error;
@@ -84,11 +84,17 @@ window.addEventListener('load', () =>{
                     }
                     return;
                 }
+                if (!data.currently || typeof data.currently.temperature !== 'number' ||
+                    !Number.isFinite(data.currently.temperature) || typeof data.currently.summary !== 'string' ||
+                    typeof data.currently.icon !== 'string' || typeof data.timezone !== 'string') {
+                    throw new Error('Invalid weather response');
+                }
                 const { temperature, summary, icon } = data.currently; // Destructure icon
                 currentTemperatureFahrenheit = temperature; // Store Fahrenheit temp
                 temperatureDegreeText.textContent = Math.round(currentTemperatureFahrenheit); // Display rounded F
                 temperatureUnitText.textContent = "F";
                 currentUnit = 'F'; // Set current unit state
+                degreeSection.disabled = false;
 
                 descriptionText.textContent = summary;
                 locationTimezoneText.textContent = data.timezone;
@@ -152,4 +158,4 @@ window.addEventListener('load', () =>{
             }
         });
     }
-}})
+});
